@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin: 1em !important;
+}
+
+.container {
+  margin: 0 1.5em 2em 1.5em;
+  display: flex;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.paginator {
+  margin: 1em;
+  background-color: transparent;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+@media (min-width: 700px) {
+  .container {
+    min-height: 70vh;
+  }
+}

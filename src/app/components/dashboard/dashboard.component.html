@@ -1,0 +1,35 @@
+<h1 class="mat-display-1 title">DASHBOARD</h1>
+<div class="container">
+  <div class="dashboard-container mat-typography">
+    <button mat-raised-button [routerLink]="['/users/0']">
+      <div class="dashboard-item mat-h1">
+        Users
+        <mat-icon aria-hidden="false" aria-label="users icon">face</mat-icon>
+      </div>
+    </button>
+    <button mat-raised-button [routerLink]="['/posts/0']">
+      <div class="dashboard-item mat-h2">
+        Posts
+        <mat-icon aria-hidden="false" aria-label="posts icon"
+          >description</mat-icon
+        >
+      </div>
+    </button>
+    <button mat-raised-button [routerLink]="['/albums/0']">
+      <div class="dashboard-item mat-h2">
+        Albums
+        <mat-icon aria-hidden="false" aria-label="albums icon"
+          >collections</mat-icon
+        >
+      </div>
+    </button>
+    <button mat-raised-button [routerLink]="['/todos/0']">
+      <div class="dashboard-item mat-h2">
+        To-Dos
+        <mat-icon aria-hidden="false" aria-label="todos icon"
+          >task_alt</mat-icon
+        >
+      </div>
+    </button>
+  </div>
+</div>

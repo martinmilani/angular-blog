@@ -1,0 +1,8 @@
+.mat-expansion-panel-header {
+  height: 80px;
+}
+
+.albums-container {
+  max-width: 750px;
+  width: 100%;
+}

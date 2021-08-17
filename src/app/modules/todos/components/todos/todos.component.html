@@ -1,0 +1,56 @@
+<h1 class="mat-display-1 title">To-Dos</h1>
+<div class="container">
+  <div class="todos-container">
+    <div
+      class="spinner-container"
+      *ngIf="loaderService.isLoading | async; else elseBlock"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+    <ng-template #elseBlock>
+      <mat-accordion>
+        <app-search
+          (select)="handleSelect($event)"
+          (selectTaskState)="handleSelectTaskState($event)"
+        ></app-search>
+        <mat-expansion-panel
+          *ngFor="
+            let todo of todos
+              | filter: select_value
+              | statefilter: selectTaskState_value
+              | paginate: page_size:page_number
+          "
+          hideToggle
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ todo.title }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            <h5>User ID: {{ todo.userId }}</h5>
+          </mat-panel-description>
+          <mat-action-row>
+            <mat-checkbox
+              [checked]="todo.completed"
+              labelPosition="before"
+              (change)="onCompleteToggle(todo)"
+              >Completed
+            </mat-checkbox>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-paginator
+          class="paginator"
+          [length]="
+            (todos | filter: select_value | statefilter: selectTaskState_value)
+              .length
+          "
+          [pageSize]="page_size"
+          (page)="handlePage($event)"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </mat-accordion>
+    </ng-template>
+  </div>
+</div>

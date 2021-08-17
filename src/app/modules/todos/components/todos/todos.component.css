@@ -1,0 +1,8 @@
+.todos-container {
+  max-width: 750px;
+  width: 100%;
+}
+
+.mat-action-row {
+  padding: 16px 24px !important;
+}

@@ -1,0 +1,42 @@
+<h1 class="mat-display-1 title">{{ userId !== 0 ? "User" : "Users" }}</h1>
+<div class="container">
+  <div class="users-container">
+    <div
+      class="spinner-container"
+      *ngIf="loaderService.isLoading | async; else elseBlock"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+    <ng-template #elseBlock>
+      <mat-accordion class="mat-typography">
+        <mat-expansion-panel
+          *ngFor="let user of users"
+          [expanded]="userId !== 0"
+          hideToggle
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title class="mat-h3"
+              >Name: {{ user.name | titlecase }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <br />
+          <h4 class="mat-h4">Website: {{ user.website }}</h4>
+          <h4 class="mat-h4">Company: {{ user.company.name }}</h4>
+          <h4 class="mat-h4">Catch Phrase: {{ user.company.catchPhrase }}</h4>
+          <h4 class="mat-h4">Business: {{ user.company.bs }}</h4>
+          <mat-action-row>
+            <button mat-button [routerLink]="['/posts/' + user.id]">
+              Posts
+            </button>
+            <button mat-button [routerLink]="['/albums/' + user.id]">
+              Albums
+            </button>
+            <button mat-button [routerLink]="['/todos/' + user.id]">
+              To-Dos
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </div>
+</div>

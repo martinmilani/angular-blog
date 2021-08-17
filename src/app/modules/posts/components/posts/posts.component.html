@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="posts-container">
+    <h1 class="mat-display-1 title">Posts</h1>
+    <div
+      class="spinner-container"
+      *ngIf="loaderService.isLoading | async; else elseBlock"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+    <ng-template #elseBlock>
+      <mat-accordion>
+        <app-search
+          (search)="handleSearch($event)"
+          (select)="handleSelect($event)"
+        ></app-search>
+        <mat-expansion-panel
+          *ngFor="
+            let post of posts
+              | search: filter_value
+              | filter: select_value
+              | paginate: page_size:page_number
+          "
+          hideToggle
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ post.title | uppercase }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <br />
+          <p>User Id: {{ post.userId }}</p>
+          <br />
+          <p>{{ post.body }}</p>
+          <mat-action-row>
+            <button mat-button [routerLink]="['/users/' + post.userId]">
+              User
+            </button>
+            <button mat-button [routerLink]="['/comments/' + post.id]">
+              Coments
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-paginator
+        class="paginator"
+        [length]="(posts | search: filter_value | filter: select_value).length"
+        [pageSize]="page_size"
+        (page)="handlePage($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </ng-template>
+  </div>
+</div>

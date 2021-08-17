@@ -1,0 +1,44 @@
+<h1 class="mat-display-1 title">Albums</h1>
+<div class="container">
+  <div class="albums-container">
+    <div
+      class="spinner-container"
+      *ngIf="loaderService.isLoading | async; else elseBlock"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+    <ng-template #elseBlock>
+      <mat-accordion class="mat-typography">
+        <mat-expansion-panel
+          *ngFor="let album of albums | paginate: page_size:page_number"
+          hideToggle
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title class="mat-h3"
+              >Name: {{ album.title | titlecase }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <br />
+          <h4 class="mat-h4">Album ID: {{ album.id }}</h4>
+          <h4 class="mat-h4">User ID: {{ album.userId }}</h4>
+          <mat-action-row>
+            <button mat-button [routerLink]="['/gallery/' + album.id]">
+              Gallery
+            </button>
+            <button mat-button [routerLink]="['/users/' + album.userId]">
+              User
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-paginator
+        class="paginator"
+        [length]="albums.length"
+        [pageSize]="page_size"
+        (page)="handlePage($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.gallery-container {
+  padding: 1em;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photos-container {
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.item_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  margin: 0.5em;
+}
+
+.item_list img {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item_list button {
+  margin-top: 0.75em;
+}

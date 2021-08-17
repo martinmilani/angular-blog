@@ -1,0 +1,10 @@
+mat-expansion-panel-header {
+  padding: 0.5em 1em;
+}
+.mat-expansion-panel-header-title {
+  padding-top: 1em;
+}
+.users-container {
+  max-width: 750px;
+  width: 100%;
+}
