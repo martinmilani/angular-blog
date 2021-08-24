@@ -1,4 +1,4 @@
-[GitHub](ScreenshotAngularBlog.png)
+![Angular Blog](ScreenshotAngularBlog.png)
 
 # AngularBlog
 
