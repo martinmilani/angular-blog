@@ -1,6 +1,6 @@
 ![Angular Blog](ScreenshotAngularBlog.png)
 
-[Demo](https://angular-blog-liard.vercel.app/dashboard)
+ [>>>> Demo <<<<](https://angular-blog-liard.vercel.app/dashboard)
 
 # AngularBlog
 
